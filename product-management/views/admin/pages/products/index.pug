@@ -1,0 +1,108 @@
+extends ../../layouts/default.pug
+include ../../mixins/filterStatus.pug
+include ../../mixins/search.pug
+include ../../mixins/pagination.pug
+include ../../mixins/form-change-multi.pug
+include ../../mixins/alert-success.pug
+block content 
+  .card.mb-3
+     h1 danh sách sản phẩm
+
+  +alert-success("3000")
+  .card-header Bộ lọc và Tìm kiếm
+  .card-body
+    .row 
+      .col-8
+        +form-change-multi(`${prefixAdmin}/products/change-multi?_method=PATCH`)
+      .col-4 
+        a(
+          href=`${prefixAdmin}/products/create`
+          class="btn btn-outline-success"
+        ) + Thêm sản phẩm
+    .row
+      .col-6 
+       +filterStatus( filterButton)
+      .col-6 
+        +search(keyword)
+  .table-responsive 
+  table.table.table-hover.table-sm.table-fixed.checkbox-multi(style="width: 100%;")
+    thead 
+      tr 
+        th 
+          input(type="checkbox" name="checkall")
+        th(style="width: 50px;") STT
+        th(style="width: 100px;") Hình ảnh
+        th(style="width: 200px; word-wrap: break-word;") Tiêu đề
+        th(style="width: 100px;") Giá
+        th(style="width: 150px;") Trạng thái
+        th(style="width: 150px;") Hoạt động
+
+    tbody 
+      each item,index in products
+        tr 
+          td 
+            input(
+              type="checkbox"
+              name="id"
+              id=item.id
+            )
+          td #{index + 1}
+          td 
+            img(src=`/images/product.jpg`
+            width = "50px"
+            height = "auto"
+            )
+          td #{item.title}
+          td #{item.price}$
+          td 
+            input(
+              type="number"
+              value = item.position 
+              style="width:60px"
+              min="1"
+              name="position"
+              )
+          td 
+            if item.status == "active"
+                a(href="javascript:;" 
+                data-status = item.status 
+                data-id = item.id
+                button-change-status
+                class="badge badge-success"
+                ) Hoạt động
+            else
+                a(href="javascript:;" 
+                data-status = item.status 
+                data-id = item.id 
+                button-change-status
+                class="badge badge-danger"
+                ) Không hoạt động
+          td 
+            a(
+              class="btn btn-secondary btn-sm"
+              href=`${prefixAdmin}/products/detail/${item.id}`
+              ) Chi tiết
+            a(
+              class="btn btn-warning btn-sm"
+              href=`${prefixAdmin}/products/edit/${item.id}`
+              ) Sửa
+            button(
+              class="btn btn-danger btn-sm"
+              data-id = item.id
+              button-delete
+              ) xoá
+        
+  +pagination(pagination)
+  form(
+    action=``, 
+    method="POST",
+    id="form-change-status",
+    data-path=`${prefixAdmin}/products/change-status`
+    ) 
+  form(
+    action=``, 
+    method="POST",
+    id="form-delete",
+    data-path=`${prefixAdmin}/products/delete`
+    ) 
+  script(src="/admin/js/product.js")

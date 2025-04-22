@@ -1,0 +1,134 @@
+/* Header */
+.header {
+  background-color: #343a40;
+  /* Màu nền đen xám */
+  padding: 15px 0;
+  color: white;
+}
+
+/* Logo */
+.inner-logo a {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.inner-logo a:hover {
+  color: #f8c471;
+  /* Màu vàng nhạt */
+}
+
+/* Menu */
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.nav-menu li {
+  display: inline-block;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+  color: #f8c471;
+
+}
+
+/* slider */
+.body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.body .slider{
+  background-color: #323232;
+  position: fixed;
+  top: 62px;
+  left: 0;
+  height: calc(100% - 62px);
+
+}
+/* slider */
+ul,li{
+list-style-type: none;
+padding:0;
+}
+.inner-menu li{
+  border-bottom: 1px solid #ffffff;
+  color:#ffffff;
+}
+
+/* show-alert *//* Show Alert */
+[show-alert] {
+  position: fixed;
+  top: 70px;
+  right: 15px;
+  z-index: 9999;
+}
+
+[show-alert].alert-hidden {
+  animation: alert-hidden 0.5s both;
+}
+
+@keyframes alert-hidden {
+  from {
+    right: 15px;
+  }
+
+  to {
+    right: -100%;
+    display: none;
+  }
+}
+ [show-alert] span{
+  font-size: 32px;
+  width: 30px;
+  height: 30px;
+  padding:5px;
+  cursor: pointer;
+ }
+/* End Show Alert */
+
+/* upload iamge */
+[upload-image-preview]
+{
+  width: 400px;
+  height: auto;
+  border: 1px solid #ddd;
+  padding:5px;
+}
+[upload-image-preview][src=""]
+{
+  display: none;
+}
+[upload-image]
+{
+  position:relative;
+}
+[close-img]
+{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top:30px;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  display: none;
+}
+
+

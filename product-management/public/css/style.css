@@ -1,0 +1,100 @@
+/* header */
+.header{
+  background-color: pink;
+  padding:10px;
+}
+.menu{
+  display: flex;
+  gap:30px;
+}
+/* header */
+
+/* footer */
+.footer{
+  padding: 10px;
+  background-color: rgb(64, 60, 60);
+}
+.content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:white;
+}
+/* footer */
+
+/* products */
+/* Container chính */
+.container.my-3 {
+  margin-top: 30px;
+}
+
+/* Tiêu đề của danh sách sản phẩm */
+.box-head .inner-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Cấu trúc của mỗi sản phẩm */
+.product-item {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hiệu ứng hover cho sản phẩm */
+.product-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Ảnh sản phẩm */
+.inner-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+/* Nội dung sản phẩm */
+.inner-content {
+  padding: 15px;
+}
+
+/* Tiêu đề sản phẩm */
+.inner-content .inner-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Giá mới */
+.inner-price-new {
+  font-size: 20px;
+  color: #28a745;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Giá cũ */
+.inner-price-old {
+  font-size: 16px;
+  text-decoration: line-through;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+/* Giảm giá */
+.inner-discount {
+  font-size: 16px;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* products */
