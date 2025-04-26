@@ -34,10 +34,20 @@ module.exports.products = async (req, res) => {
     countProduct
   );
 
+  //sort
+  const sort = {};
+  if(req.query.sortkey&&req.query.sortvalue)
+  {
+    sort[req.query.sortkey] = req.query.sortvalue;
+  }
+  sort.position = "desc";
+
+  
+
   const products = await Products.find(find)
     .limit(objectPagination.limit)
     .skip(objectPagination.skip)
-    .sort({ position: "desc" });
+    .sort(sort);
   res.render("admin/pages/products/index.pug", {
     pageTitle: "Trang sản phẩm",
     products: products,
@@ -134,9 +144,9 @@ module.exports.createPost = async (req, res) => {
   } else {
     req.body.position = parseInt(req.body.position);
   }
-  if (req.file) {
-    req.body.thumbnail = `/uploads/${req.file.filename}`;
-  }
+  // if (req.file) {
+  //   req.body.thumbnail = `/uploads/${req.file.filename}`;
+  // }
   const product = new Products(req.body);
   await product.save();
   res.redirect(`${systemConfig.prefixAdmin}/products`);

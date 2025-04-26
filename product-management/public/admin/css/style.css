@@ -4,6 +4,10 @@
   /* Màu nền đen xám */
   padding: 15px 0;
   color: white;
+  position: fixed;
+  width: 100%;
+  top:0;
+  z-index: 9999;
 }
 
 /* Logo */
@@ -48,9 +52,7 @@
 
 /* slider */
 .body{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-left: 150px;
 }
 .body .slider{
   background-color: #323232;

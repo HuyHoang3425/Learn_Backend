@@ -2,23 +2,33 @@ extends ../../layouts/default.pug
 include ../../mixins/alert-success.pug
 
 block content 
+  .card.mb-3
+     h1 danh sách sản phẩm
   +alert-error(3000)
-  h1(class="mb-4") Thêm sản phẩm mới
-
   form(
-    action=`${prefixAdmin}/products/create`
+    action=`${prefixAdmin}/products-category/create`
     id="form-create-product"
     method="POST"
     enctype="multipart/form-data"
   )
     div(class="form-group")
       lable(for="title") Tiêu đề
+      br
       input(
         type="text"
         class="form=control"
         id="title"
         name="title"
         required
+      )
+    div(class="form-group")
+      lable(for="parent_id") Danh mục cấp 1
+        br
+      input(
+        type="text"
+        class="form=control"
+        id="parent_id"
+        name="parent_id"
       )
     div(
       class="form-group"
@@ -29,46 +39,6 @@ block content
         id="desc"
         name="description"
         rows="5"
-      )
-    div(
-      class="form-group"
-    )
-      lable(for="desc") Nội dung
-      textarea(
-        class="form-control tinymce"
-        id="desc"
-        name="content"
-        rows="5"
-      )  
-    div(class="form-group")
-      label(for="price") Giá
-      input(
-        type="number"
-        class="form-control"
-        id="price"
-        name="price"
-        value="0"
-        min="0"
-      ) 
-    div(class="form-group")
-      label(for="discount") % Giảm giá
-      input(
-        type="number"
-        class="form-control"
-        id="discount"
-        name="discountPercentage"
-        value="0"
-        min="0"
-      )
-    div(class="form-group")
-      label(for="stock") Số lượng
-      input(
-        type="number"
-        class="form-control"
-        id="stock"
-        name="stock"
-        value="0"
-        min="0"
       )
     div(class="form-group" upload-image)
       label(for="thumbnail") Ảnh

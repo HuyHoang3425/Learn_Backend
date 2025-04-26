@@ -4,6 +4,7 @@ include ../../mixins/search.pug
 include ../../mixins/pagination.pug
 include ../../mixins/form-change-multi.pug
 include ../../mixins/alert-success.pug
+include ../../mixins/sort.pug
 block content 
   .card.mb-3
      h1 danh sách sản phẩm
@@ -24,6 +25,8 @@ block content
        +filterStatus( filterButton)
       .col-6 
         +search(keyword)
+  +sort()
+
   .table-responsive 
   table.table.table-hover.table-sm.table-fixed.checkbox-multi(style="width: 100%;")
     thead 
