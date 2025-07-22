@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    title Mã xác thực OTP
+  body(style="background-color: #f4f4f4; font-family: Arial, sans-serif; padding: 30px;")
+    .email-container(style="max-width: 500px; margin: auto; background: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);")
+      h2(style="text-align: center; color: #333333; margin-bottom: 24px;") Mã xác thực OTP
+
+      p(style="font-size: 16px; color: #555555;") Xin chào <b>#{email}</b>, bạn vừa yêu cầu mã xác thực.
+
+      p(style="font-size: 16px; color: #555555;") Dưới đây là mã OTP của bạn:
+
+      .otp-box(style="margin: 20px auto; text-align: center; font-size: 28px; font-weight: bold; color: #007bff; background: #f0f8ff; padding: 12px 20px; border-radius: 8px; width: fit-content;")
+        = otp
+
+      p(style="font-size: 14px; color: #999999; margin-top: 30px;") Mã có hiệu lực trong 2 phút. Vui lòng không chia sẻ mã này với bất kỳ ai.

@@ -1,0 +1,38 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
+include ../../mixins/alert-success.pug
+
+block content
+  +alert-success(2000)
+  +alert-error(2000)
+
+      
+  .container.mb-5
+    .row.justify-content-center
+      .col-md-6
+        .card.mt-5.shadow
+          .card-body
+            h3.text-center.mb-4 Đăng ký
+
+            form(action="/user/register", method="POST")
+              .mb-3
+                label.form-label(for="fullName") Họ và tên
+                input#fullName.form-control(type="text", name="fullName", required)
+
+              .mb-3
+                label.form-label(for="email") Email
+                input#email.form-control(type="email", name="email", required)
+
+              .mb-3
+                label.form-label(for="password") Mật khẩu
+                input#password.form-control(type="password", name="password", required)
+
+              .mb-3
+                label.form-label(for="confirmPassword") Nhập lại mật khẩu
+                input#confirmPassword.form-control(type="password", name="confirmPassword", required)
+
+              button.btn.btn-success.w-100(type="submit") Đăng ký
+
+            .text-center.mt-3
+              span Đã có tài khoản?
+              a(href="/user/login") Đăng nhập

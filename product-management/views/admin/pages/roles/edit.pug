@@ -1,0 +1,46 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert-success.pug
+include ../../mixins/select-tree.pug
+
+block content 
+  if(role.permissions.includes("edit_role"))
+    .card.mb-3
+      h1 Tạo nhóm quyền
+    +alert-error(3000)
+    +alert-success(3000)
+    form(
+      action=`${prefixAdmin}/roles/edit/${records.id}?_method=PATCH`
+      id="form-create-role"
+      method="POST"
+    )
+      div(class="form-group")
+        label(for="title") Tiêu đề
+        //- br
+        input(
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          required
+          value=records.title
+        ) 
+      div(
+        class="form-group"
+      )
+        label(for="desc") Mô tả
+        textarea(
+          class="form-control tinymce"
+          id="desc"
+          name="description"
+          rows="5"
+        ) #{records.description}
+      div(class="form-group")
+        button(
+          type="submit"
+          class="btn btn-primary"
+        ) Tạo mới
+  else 
+   h1 Không có dữ liệu
+  script(src="/admin/js/product.js") 
+  script(type="application/javascript" src="/tinymce/tinymce.min.js") 
+  script(src="/admin/js/tinymce-config.js")

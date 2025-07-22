@@ -1,0 +1,116 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert-success.pug
+include ../../mixins/select-tree.pug
+include ../../mixins/checkbox.pug
+
+block content 
+  if(role.permissions.includes("roles"))
+    .card.mb-3
+      h1 Phân quyền
+    +alert-error(3000)
+    +alert-success(3000)
+    div(data-records=records)
+    div(class="form-group")
+      button(
+        type="submit"
+        class="btn btn-primary"
+        button-submit
+      ) Tạo mới
+    table(class="table table-hover table-sm")
+      thead 
+        tr
+          th Tính năng
+            if(records.length > 0)
+              each item in records
+                th(class="text-center") #{item.title}
+      tbody 
+        tr 
+          td
+          each item in records
+            td(class="text-center") 
+              input(type="text" data-name="id" value=item.id)
+        //-danh mục sản phẩm
+        tr 
+          td(colspan=records.length)
+            b Danh mục sản phẩm
+        tr(data-name="view") 
+          td Xem 
+          +checkbox(records)
+        tr(data-name="create") 
+          td Thêm
+          +checkbox(records)
+        tr(data-name="edit") 
+          td Sửa
+          +checkbox(records)
+        tr(data-name="delete") 
+          td Xoá 
+          +checkbox(records)
+        
+        //-sản phẩm
+        tr 
+          td(colspan=records.length)
+            b Sản phẩm
+        tr(data-name="view_product") 
+          td Xem 
+          +checkbox(records)
+        tr(data-name="create_product") 
+          td Thêm
+          +checkbox(records)
+        tr(data-name="edit_product") 
+          td Sửa
+          +checkbox(records)
+        tr(data-name="delete_product") 
+          td Xoá 
+          +checkbox(records)
+        //-nhóm quyền
+        tr 
+          td(colspan=records.length)
+            b Nhóm quyền
+        tr(data-name="view_role") 
+          td Xem 
+          +checkbox(records)
+        tr(data-name="create_role") 
+          td Thêm
+          +checkbox(records)
+        tr(data-name="edit_role") 
+          td Sửa
+          +checkbox(records)
+        tr(data-name="delete_role") 
+          td Xoá 
+          +checkbox(records)
+        tr(data-name="roles") 
+          td Phân quyền
+          +checkbox(records)
+        //-phân quyền quyền
+        tr 
+          td(colspan=records.length)
+            b Tài khoản
+          tr(data-name="view_account") 
+            td Xem 
+            +checkbox(records)
+          tr(data-name="create_account") 
+            td Thêm
+            +checkbox(records)
+          tr(data-name="edit_account") 
+            td Sửa
+            +checkbox(records)
+          tr(data-name="delete_account") 
+            td Xoá 
+            +checkbox(records)
+    form(
+      id="form-change-permission"
+      method="POST"
+      action=`${prefixAdmin}/roles/permissions?_method=PATCH`
+    )
+      div(class="form-group")
+        input(
+          type="text"
+          class="form-control"
+          name="permissions"
+        )
+  else 
+    h1 Không có dữ liệu!
+    
+  script(src="/admin/js/product.js") 
+  script(src="/admin/js/role.js") 
+  

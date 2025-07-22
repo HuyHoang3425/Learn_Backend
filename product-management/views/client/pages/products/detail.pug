@@ -1,7 +1,9 @@
 extends ../../layouts/default.pug
 include ../../mixins/box-head.pug
+include ../../mixins/alert-success.pug
 
 block content
+  +alert-success(2000)
   h1(class = "mb-4") Chi tiết sản phẩm 
 
   if (product.title)
@@ -21,7 +23,7 @@ block content
 
   if (product.thumbnail)
     div.mb-4
-      img(src=`/images/product.jpg`, style="width: 100px")
+      img(src="/images/product.jpg", style="width: 100px")
 
   if (product.status)
     div.mb-4
@@ -36,4 +38,18 @@ block content
       b #{product.position}
 
   if (product.description)
-    div.mb-4 #{product.description}
+    div.mb-4 !{product.description}
+
+  form(
+    action=`/cart/add/${product.id}`
+    method="POST"
+  )
+      input(
+        type="number", min = 1 , value = 1
+        name="quantity"
+        max=product.stock
+      )
+      button(
+        type="submit"
+        class="btn btn-success"
+      ) Thêm vào giỏ hàng

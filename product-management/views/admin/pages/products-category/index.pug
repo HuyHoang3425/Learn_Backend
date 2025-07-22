@@ -3,32 +3,35 @@ include ../../mixins/alert-success.pug
 include ../../mixins/table-tree.pug
 
 block content 
-  .card.mb-3
-     h1 danh sách sản phẩm
+  if(role.permissions.includes("view_product")) 
+    .card.mb-3
+      h1 danh sách sản phẩm
 
-  .card-header Danh sách
-    .card-body
-      .row 
-        .col-8
-        .col-4 
-          a(
-            href=`${prefixAdmin}/products-category/create`
-            class="btn btn-outline-success"
-          ) + Thêm mới
-      
-      .table-responsive 
-      table.table.table-hover.table-sm.table-fixed.checkbox-multi(style="width: 100%;")
-        thead 
-          tr 
-            th 
-              input(type="checkbox" name="checkall")
-            th(style="width: 50px;") STT
-            th(style="width: 100px;") Hình ảnh
-            th(style="width: 200px; word-wrap: break-word;") Tiêu đề
-            th(style="width: 150px;") Vị trí
-            th(style="width: 150px;") Hoạt động
+    .card-header Danh sách
+      .card-body
+        .row 
+          .col-8
+          if(role.permissions.includes("create_product")) 
+            .col-4 
+              a(
+                href=`${prefixAdmin}/products-category/create`
+                class="btn btn-outline-success"
+              ) + Thêm mới
+        
+        .table-responsive 
+        table.table.table-hover.table-sm.table-fixed.checkbox-multi(style="width: 100%;")
+          thead 
+            tr 
+              th 
+                input(type="checkbox" name="checkall")
+              th(style="width: 50px;") STT
+              th(style="width: 100px;") Hình ảnh
+              th(style="width: 200px; word-wrap: break-word;") Tiêu đề
+              th(style="width: 150px;") Vị trí
+              th(style="width: 150px;") Hoạt động
 
-        tbody 
-          +table-tree(records)
-          
+          tbody 
+            +table-tree(records)
+  else 
+    h1 Không có dữ liệu!    
   script(src="/admin/js/product.js") 

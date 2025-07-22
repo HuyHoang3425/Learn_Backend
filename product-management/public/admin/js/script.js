@@ -192,7 +192,7 @@ if (sort) {
 const sortkey = url.searchParams.get("sortkey");
 const sortvalue = url.searchParams.get("sortvalue");
 const value = `${sortkey}-${sortvalue}`;
-const optionSelected = sort.querySelector(`option[value=${value}]`);
+const optionSelected = document.querySelector(`option[value="${value}"]`);
 if(optionSelected)
 {
   optionSelected.selected = true;

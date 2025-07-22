@@ -9,7 +9,11 @@
   top:0;
   z-index: 9999;
 }
-
+.main{
+  margin-top: 70px;
+  margin-left: 50px;
+  margin-right: 30px;
+}
 /* Logo */
 .inner-logo a {
   color: white;
@@ -70,8 +74,11 @@ padding:0;
 .inner-menu li{
   border-bottom: 1px solid #ffffff;
   color:#ffffff;
+  padding: 5px;
 }
-
+.inner-menu li:hover{
+  background-color: #5f5f5f;
+}
 /* show-alert *//* Show Alert */
 [show-alert] {
   position: fixed;
@@ -131,6 +138,9 @@ padding:0;
   border: 1px solid #ddd;
   cursor: pointer;
   display: none;
+}
+img[image]{
+  width: 50px;
 }
 
 

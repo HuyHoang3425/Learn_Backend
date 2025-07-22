@@ -1,0 +1,72 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert-success.pug
+include ../../mixins/table-tree.pug
+
+block content 
+  .card.mb-3
+     h1 danh sách tài khoản
+  .card-header Danh sách
+    .card-body 
+      .row 
+        .col-8
+        .col-4 
+          a(
+            href=`${prefixAdmin}/accounts/create`
+            class="btn btn-outline-success mb-3"
+          ) + Thêm mới
+  .table-responsive 
+      table.table.table-hover.table-sm.table-fixed.checkbox-multi(style="width: 100%;")
+        thead 
+          tr 
+            th STT 
+            th Avatar
+            th Họ tên
+            th Phân quyền
+            th Email 
+            th trạng thái 
+            th Hành động
+              
+        tbody 
+          if(records.length > 0)
+            each item,index in records 
+              tr  
+                td #{index + 1}
+                td 
+                  img(src=`${item.avatar}` image)
+                td #{item.fullName}
+                td #{item.role.title}
+                td #{item.email}
+                td 
+                  if item.status == "active"
+                      a(href="javascript:;" 
+                      data-status = item.status 
+                      data-id = item.id
+                      button-change-status
+                      class="badge badge-success"
+                      ) Hoạt động
+                  else
+                      a(href="javascript:;" 
+                      data-status = item.status 
+                      data-id = item.id 
+                      button-change-status
+                      class="badge badge-danger"
+                      ) Không hoạt động
+                td
+                  a(
+                    class="btn btn-secondary btn-sm"
+                    href=`${prefixAdmin}/products/detail/${item.id}`
+                    ) Chi tiết
+                  a(
+                    class="btn btn-warning btn-sm"
+                    href=`${prefixAdmin}/accounts/edit/${item.id}`
+                    ) Sửa
+                  button(
+                    class="btn btn-danger btn-sm"
+                    data-id = item.id
+                    button-delete
+                    ) xoá
+          else 
+            tr 
+             td(colspan="4" class="text-center") chưa có tài khoản nào !    
+
+  script(src="/admin/js/product.js") 

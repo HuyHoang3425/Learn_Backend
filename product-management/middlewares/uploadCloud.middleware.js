@@ -1,8 +1,6 @@
 const cloudinary = require("cloudinary").v2;
 const streamifier = require("streamifier");
 
-
-
 // Configuration
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,

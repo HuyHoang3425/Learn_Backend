@@ -1,10 +1,23 @@
 .slider 
   .inner-menu   
-    ul 
+    ul
       a(href=`${prefixAdmin}/dashboard`) 
         li Tổng quan
-      a(href=`${prefixAdmin}/products`) 
-        li Sản phẩm
-      a(href=`${prefixAdmin}/products-category`) 
-        li Danh mục sản phẩm
-        
+      if(role)
+        if(role.permissions.includes("view")) 
+          a(href=`${prefixAdmin}/products`) 
+            li Sản phẩm
+        if(role.permissions.includes("view_product")) 
+          a(href=`${prefixAdmin}/products-category`) 
+            li Danh mục sản phẩm
+        if(role.permissions.includes("view_role")) 
+          a(href=`${prefixAdmin}/roles`) 
+            li Nhóm quyền
+        if(role.permissions.includes("roles")) 
+          a(href=`${prefixAdmin}/roles/permissions`) 
+            li Phân Quyền
+        if(role.permissions.includes("view_account")) 
+          a(href=`${prefixAdmin}/accounts`) 
+            li Tài khoản
+        a(href=`${prefixAdmin}/setting/general`) 
+            li Cài đặt chung

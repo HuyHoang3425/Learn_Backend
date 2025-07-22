@@ -1,0 +1,26 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert-success.pug
+include ../../mixins/table-tree.pug
+
+block content 
+  h1 Thông tin cá nhân 
+  if(user.fullName)
+    p
+      b Họ và tên :
+      span #{user.fullName}
+  if(user.email)
+    p
+      b Email :
+      span #{user.email}
+  if(user.phone)
+    p
+      b Số điện thoại :
+      span #{user.phone}
+  if(user.status)
+    p
+      b Trạng thái :
+      span #{user.status == "active"?"Hoạt động":"Không hoạt động"}
+  if(role.title)
+      b Phân quyền :
+      span #{role.title}
+  script(src="/admin/js/product.js") 

@@ -5,9 +5,12 @@ header.header
         .inner-logo
           a(href="/admin/dashboard") ADMIN
       .col-9
-        nav.nav
-          ul.nav-menu
-            li: a(href="#") Home
-            li: a(href="#") Users
-            li: a(href="#") Settings
-            li: a(href="#") Logout
+        div(class="text-right")
+          a(
+            href=`${prefixAdmin}/my_account`
+            class="btn btn-primary btn-sm mr-2"
+          ) #{user.fullName}
+          a(
+            href=`${prefixAdmin}/auth/logout`
+            class="btn btn-danger btn-sm"
+          ) Đăng xuất

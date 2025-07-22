@@ -1,0 +1,44 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
+include ../../mixins/alert-success.pug
+
+block content
+  +alert-success(2000)
+  
+  .container
+    include ../../partials/list-btn-users.pug
+    +box-head("Chat Realtime", "Trò chuyện trực tuyến với bạn bè")
+    .chat(user_id = user.id)
+    .chat-wrapper
+      .chat-container
+        .chat-messages#chatMessages
+          each chat in chats 
+            div(class=(chat.user_id == user.id ?"message sent":"message received"))
+              .message-content
+                if(chat.user_id != user.id)
+                  .avatar.user-a #{chat.fullName}
+                .message-bubble
+                  .message-text #{chat.content}
+
+          .inner-left-typing
+            //- .box-typing
+            //-   .inner-name Lê Văn B
+            //-   .inner-dots
+            //-     span
+            //-     span
+            //-     span
+          
+        
+        .chat-input
+          .input-wrapper
+            input#messageInput(type="text", placeholder="Nhập tin nhắn của bạn...")
+          button.send-btn.btn-icon
+            i.fa-regular.fa-face-smile
+          button.send-btn.btn-send
+            i.fa-solid.fa-paper-plane
+          div(class="custom-file-container" data-upload-id="upload-image")  ảnh
+  
+  div(class="tooltip" role="tooltip")
+    emoji-picker
+block script 
+  script(type="module" src="/js/chat.js")

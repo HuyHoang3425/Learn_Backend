@@ -1,0 +1,58 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert-success.pug
+include ../../mixins/table-tree.pug
+
+block content 
+  if(role.permissions.includes("view_role")) 
+    .card.mb-3
+      h1 danh sách sản phẩm
+
+    .card-header Danh sách
+      .card-body 
+        .row 
+          .col-8
+          if(role.permissions.includes("create_role")) 
+            .col-4 
+              a(
+                href=`${prefixAdmin}/roles/create`
+                class="btn btn-outline-success mb-3"
+              ) + Thêm mới
+        
+        .table-responsive 
+        table.table.table-hover.table-sm.table-fixed.checkbox-multi(style="width: 100%;")
+          thead 
+            tr 
+              th STT 
+              th Nhóm quyền
+              th Mô tả ngắn 
+              th Hành động
+                
+          tbody 
+            if(records.length > 0)
+              each item,index in records 
+                tr  
+                  td #{index + 1}
+                  td #{item.title}
+                  td !{item.description}
+                  td 
+                    a(
+                      class="btn btn-secondary btn-sm"
+                      href=`${prefixAdmin}/products/detail/`
+                      ) Chi tiết
+                    if(role.permissions.includes("edit_role"))
+                      a(
+                        class="btn btn-warning btn-sm"
+                        href=`${prefixAdmin}/roles/edit/${item.id}`
+                        ) Sửa
+                    if(role.permissions.includes("delete_role"))
+                      button(
+                        class="btn btn-danger btn-sm"
+                        data-id = item.id
+                        button-delete
+                        ) xoá
+            else 
+              tr 
+              td(colspan="4" class="text-center") chưa có nhóm quyền nào !
+  else 
+    h1 Không có dữ liệu!
+  script(src="/admin/js/product.js") 
