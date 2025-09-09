@@ -1,0 +1,247 @@
+style. 
+  footer footerstyle.
+  .music-footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: #ecf0f1;
+    margin-top: 50px;
+  }
+  
+  .footer-content {
+    padding: 40px 0 20px 0;
+  }
+  
+  .footer-section h5 {
+    color: #3498db;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-section ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-section ul li a:hover {
+    color: #3498db;
+    text-decoration: none;
+  }
+  
+  .footer-section p {
+    color: #95a5a6;
+    line-height: 1.6;
+  }
+  
+  .social-links a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: rgba(52, 152, 219, 0.1);
+    border-radius: 50%;
+    color: #3498db;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    background-color: #3498db;
+    color: white;
+    transform: translateY(-3px);
+    text-decoration: none;
+  }
+  
+  .app-download a {
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .app-download img {
+    height: 45px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .app-download img:hover {
+    transform: scale(1.05);
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 20px 0;
+    text-align: center;
+    color: #95a5a6;
+    font-size: 0.9rem;
+  }
+  
+  .footer-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #3498db;
+    margin-bottom: 15px;
+  }
+  
+  .footer-brand i {
+    color: #e74c3c;
+    margin-right: 8px;
+  }
+  
+  .newsletter-form {
+    position: relative;
+    margin-top: 15px;
+  }
+  
+  .newsletter-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #34495e;
+    border-radius: 25px;
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .newsletter-form input::placeholder {
+    color: #95a5a6;
+  }
+  
+  .newsletter-form input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  }
+  
+  .newsletter-form button {
+    width: 100%;
+    padding: 12px 20px;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .newsletter-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+  }
+
+footer.music-footer
+  .footer-content
+    .container
+      .row
+        // Brand & About
+        .col-lg-3.col-md-6.mb-4
+          .footer-section
+            .footer-brand
+              i.fas.fa-music
+              | MusicApp
+            p Nền tảng âm nhạc hàng đầu với hàng triệu bài hát từ các nghệ sĩ nổi tiếng trong và ngoài nước.
+            .social-links
+              a(href="#", title="Facebook")
+                i.fab.fa-facebook-f
+              a(href="#", title="Twitter")
+                i.fab.fa-twitter
+              a(href="#", title="Instagram")
+                i.fab.fa-instagram
+              a(href="#", title="YouTube")
+                i.fab.fa-youtube
+              a(href="#", title="Spotify")
+                i.fab.fa-spotify
+        
+        // Quick Links
+        .col-lg-2.col-md-6.mb-4
+          .footer-section
+            h5 Liên kết nhanh
+            ul
+              li
+                a(href="/") Trang chủ
+              li
+                a(href="/discover") Khám phá
+              li
+                a(href="/charts") BXH
+              li
+                a(href="/playlist") Playlist
+              li
+                a(href="/artists") Nghệ sĩ
+              li
+                a(href="/genres") Thể loại
+        
+        // Categories
+        .col-lg-2.col-md-6.mb-4
+          .footer-section
+            h5 Thể loại
+            ul
+              li
+                a(href="/genre/vpop") V-Pop
+              li
+                a(href="/genre/kpop") K-Pop
+              li
+                a(href="/genre/usuk") US-UK
+              li
+                a(href="/genre/jazz") Jazz
+              li
+                a(href="/genre/rock") Rock
+              li
+                a(href="/genre/classical") Cổ điển
+        
+        // Support
+        .col-lg-2.col-md-6.mb-4
+          .footer-section
+            h5 Hỗ trợ
+            ul
+              li
+                a(href="/help") Trung tâm trợ giúp
+              li
+                a(href="/contact") Liên hệ
+              li
+                a(href="/privacy") Chính sách riêng tư
+              li
+                a(href="/terms") Điều khoản sử dụng
+              li
+                a(href="/faq") FAQ
+              li
+                a(href="/feedback") Góp ý
+        
+        // Newsletter & App
+        .col-lg-3.col-md-12.mb-4
+          .footer-section
+            h5 Cập nhật mới nhất
+            p Đăng ký để nhận thông tin về các bài hát và nghệ sĩ mới nhất.
+            form.newsletter-form
+              input(type="email", placeholder="Email của bạn...")
+              button(type="submit")
+                i.fas.fa-paper-plane.mr-2
+                | Đăng ký
+            
+            h5.mt-4 Tải ứng dụng
+            .app-download
+              a(href="#")
+                img(src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg", alt="Download on App Store")
+              a(href="#")
+                img(src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png", alt="Get it on Google Play", style="height: 50px;")
+  
+  .footer-bottom
+    .container
+      .row
+        .col-12
+          p &copy; #{new Date().getFullYear()} MusicApp. Tất cả quyền được bảo lưu. | Phát triển bởi Team MusicApp
+          p
+            | Hotline: 
+            a(href="tel:19001900", style="color: #3498db;") 1900-1900
+            |  | Email: 
+            a(href="mailto:support@musicapp.com", style="color: #3498db;") support@musicapp.com
